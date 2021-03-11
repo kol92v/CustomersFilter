@@ -1,9 +1,13 @@
-package model;
+package view;
+
+import model.services.customerReWriters.PropertyCustomerReWriter;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MyWindow {
 
@@ -29,6 +33,8 @@ public class MyWindow {
         //Добавим к кнопке слушатель события
         btnIncrease.addActionListener(new ActionListener(){
           public void actionPerformed(ActionEvent e) {
+              PropertyCustomerReWriter propertyCustomerSaver = new PropertyCustomerReWriter(new ArrayList<>(Arrays.asList("kariez", "acn", "bcn")));
+              propertyCustomerSaver.saveCustomerInFile();
             balance++;
             updateBalance();
           }

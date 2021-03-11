@@ -1,7 +1,7 @@
+model\services\customerSavers\PropertyCustomerSaver.class
 model\dao\FileFinder.class
-model\services\workersForSettings\FileSaverSettings.class
 model\MyWindow$1.class
 model\UpdateFile.class
-model\services\workersForSettings\SaverSettings.class
+model\services\customerSavers\CustomerSaver.class
 model\Customer.class
 model\MyWindow.class
