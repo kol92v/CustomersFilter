@@ -8,10 +8,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 public class PropertyCustomerReWriter extends CustomerReWriter {
     public PropertyCustomerReWriter(List<String> parametersList) {
@@ -37,7 +34,7 @@ public class PropertyCustomerReWriter extends CustomerReWriter {
 
     @SneakyThrows(IOException.class)
     @Override
-    public List<Customer> loadCustomersFromFile() {
+    public List<Customer> getCustomersFromFile() {
         if (Files.notExists(fileCustomerSettings)) return Collections.emptyList();
         List<Customer> customers = new ArrayList<>();
         Properties customersProperty = new Properties();
@@ -50,5 +47,16 @@ public class PropertyCustomerReWriter extends CustomerReWriter {
             customers.add(customerFromProp);
         });
         return customers;
+    }
+
+    @SneakyThrows
+    @Override
+    public void deleteCustomerFromFile() {
+        Properties customersProperty = new Properties();
+        if (Files.notExists(fileCustomerSettings)) return;
+        customersProperty.load(Files.newBufferedReader(fileCustomerSettings));
+        customersProperty.remove(parametersList.get(0).toLowerCase(Locale.ROOT));
+        customersProperty.store(new FileOutputStream(fileCustomerSettings.toFile()),
+                LocalDateTime.now().toString());
     }
 }

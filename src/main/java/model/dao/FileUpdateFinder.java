@@ -23,15 +23,9 @@ class FileUpdateFinder implements FileVisitor<Path> {
     private LocalDate to;
     private Path pathToUpdateFiles;
 
-    public FileUpdateFinder(LocalDate from, LocalDate to, Path pathToUpdateFiles) {
-        this.from = from;
-        this.to = to;
-        this.pathToUpdateFiles = pathToUpdateFiles;
-    }
-
 
     @SneakyThrows(IOException.class)
-    public void generateMapOfFilesPaths() {
+    public void generateMapOfFilesPaths(Path pathToUpdateFiles, LocalDate form, LocalDate to) {
         Files.walkFileTree(pathToUpdateFiles, this);
     }
 
@@ -57,9 +51,9 @@ class FileUpdateFinder implements FileVisitor<Path> {
         if (!fileName.endsWith(".ANS")) return FileVisitResult.CONTINUE;
         String[] arrayDirectories = file.getParent().toString().replaceAll("/", "\\")
                 .split("\\\\");
-        String parentDirectoryFile = arrayDirectories[arrayDirectories.length-1].trim();
+        String parentDirectoryFile = arrayDirectories[arrayDirectories.length - 1].trim();
         LocalDate keyDate = LocalDate.parse(parentDirectoryFile);
-        mapOfPathsUpdateFiles.get(keyDate).put(fileName.split("#")[0], file);
+        mapOfPathsUpdateFiles.get(keyDate).put(fileName.split("#")[0].trim(), file);
         return FileVisitResult.CONTINUE;
     }
 

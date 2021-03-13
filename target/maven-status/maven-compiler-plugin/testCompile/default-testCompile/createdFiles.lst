@@ -1,1 +1,3 @@
-model\services\customerSavers\PropertyCustomerSaverTest.class
+model\services\customerReWriters\PropertyCustomerReWriterTest.class
+model\dao\FileUpdateFinderTest.class
+model\services\customerReWriters\CustomerReWriterTest.class

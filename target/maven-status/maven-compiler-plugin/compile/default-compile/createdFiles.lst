@@ -1,7 +1,12 @@
-model\services\customerSavers\PropertyCustomerSaver.class
-model\dao\FileFinder.class
-model\MyWindow$1.class
+view\ViewFX.class
+view\View.class
+model\services\creatorsPackage\CreatorPackageFolder.class
+view\ControllerViewFX.class
+model\services\creatorsPackage\CreatorPackage.class
+model\dao\FileUpdateFinder.class
+view\MyWindow.class
+model\services\customerReWriters\CustomerReWriter.class
+view\MyWindow$1.class
+model\services\customerReWriters\PropertyCustomerReWriter.class
 model\UpdateFile.class
-model\services\customerSavers\CustomerSaver.class
 model\Customer.class
-model\MyWindow.class

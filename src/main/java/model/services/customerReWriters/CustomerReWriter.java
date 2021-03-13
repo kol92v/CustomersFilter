@@ -11,7 +11,7 @@ import java.util.List;
 public abstract class CustomerReWriter {
     List<String> parametersList;
     final Path fileCustomerSettings = Paths.get(System.getProperty("user.dir")
-            + File.separator + "customers.properties");
+            + File.separator + "customersSettings" + File.separator + "customers.properties");
     Customer customer;
 
     public CustomerReWriter(List<String> parametersList) {
@@ -30,5 +30,7 @@ public abstract class CustomerReWriter {
 
     public abstract void saveCustomerInFile();
 
-    public abstract List<Customer> loadCustomersFromFile();
+    public abstract List<Customer> getCustomersFromFile();
+
+    public abstract void deleteCustomerFromFile();
 }

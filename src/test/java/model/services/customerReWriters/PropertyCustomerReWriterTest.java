@@ -18,6 +18,6 @@ class PropertyCustomerReWriterTest {
 
     @Test
     void loadCustomersFromFile() {
-        propertyCustomerReWriter.loadCustomersFromFile().forEach(System.out::println);
+        propertyCustomerReWriter.getCustomersFromFile().forEach(System.out::println);
     }
 }
