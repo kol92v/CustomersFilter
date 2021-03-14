@@ -1,4 +1,4 @@
-package view;
+package view.viewFX;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,3 +17,4 @@ public class ControllerViewFX {
 
     }
 }
+

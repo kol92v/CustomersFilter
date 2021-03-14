@@ -183,7 +183,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>view.ViewFX</mainClass>
+                            <mainClass>view.viewFX.ViewFX</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -194,7 +194,7 @@
 <!--                <artifactId>javafx-maven-plugin</artifactId>-->
 <!--                <version>0.0.5</version>-->
 <!--                <configuration>-->
-<!--                    <mainClass>view.ViewFX</mainClass>-->
+<!--                    <mainClass>view.viewFX.ViewFX</mainClass>-->
 <!--                </configuration>-->
 <!--            </plugin>-->
 
@@ -203,7 +203,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.0.0</version>
                 <configuration>
-                    <mainClass>view.ViewFX</mainClass>
+                    <mainClass>view.viewFX.ViewFX</mainClass>
                 </configuration>
             </plugin>
 
