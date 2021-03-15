@@ -16,7 +16,7 @@ public class PropertyCustomerReWriter extends CustomerReWriter {
     }
 
     @SneakyThrows(IOException.class)
-    public void saveCustomerInFile() {
+    public void addCustomerInFile() {
         Properties customersProperty = new Properties();
         if (Files.exists(fileCustomerSettings)) {
             customersProperty.load(Files.newBufferedReader(fileCustomerSettings));
@@ -55,7 +55,7 @@ public class PropertyCustomerReWriter extends CustomerReWriter {
         Properties customersProperty = new Properties();
         if (Files.notExists(fileCustomerSettings)) return;
         customersProperty.load(Files.newBufferedReader(fileCustomerSettings));
-        customersProperty.remove(parametersList.get(0).toLowerCase(Locale.ROOT));
+        customersProperty.remove(customer.getName());
         customersProperty.store(new FileOutputStream(fileCustomerSettings.toFile()),
                 LocalDateTime.now().toString());
     }

@@ -13,7 +13,7 @@ class PropertyCustomerReWriterTest {
 
     @Test
     void saveCustomerInFile() {
-        propertyCustomerReWriter.saveCustomerInFile();
+        propertyCustomerReWriter.addCustomerInFile();
     }
 
     @Test

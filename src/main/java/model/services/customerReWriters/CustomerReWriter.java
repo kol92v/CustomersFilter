@@ -28,7 +28,7 @@ public abstract class CustomerReWriter {
         return customer;
     }
 
-    public abstract void saveCustomerInFile();
+    public abstract void addCustomerInFile();
 
     public abstract List<Customer> getCustomersFromFile();
 

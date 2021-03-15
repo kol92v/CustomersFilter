@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.viewFX.controllersFX.ControllerClientInTable">
+   <center>
+      <SplitPane dividerPositions="0.0602, 0.4675, 0.7492" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="327.0" style="-fx-border-color: #C0C0C0;">
+        <items>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <CheckBox fx:id="checkBox" alignment="CENTER" layoutX="4.0" layoutY="6.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="20.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="labelCleintName" layoutX="14.0" layoutY="2.0" prefHeight="25.0" prefWidth="273.0" text="ClientName" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="76.0">
+               <children>
+                  <TextField fx:id="dateFrom" layoutX="4.0" layoutY="2.0" prefHeight="25.0" prefWidth="76.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="dateTo" layoutX="3.0" layoutY="2.0" prefHeight="25.0" prefWidth="70.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </center>
+</BorderPane>
