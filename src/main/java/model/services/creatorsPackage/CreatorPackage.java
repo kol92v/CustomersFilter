@@ -1,17 +1,19 @@
 package model.services.creatorsPackage;
 
-import model.Customer;
+import model.dtoMd.Customer;
 import model.dao.FileUpdateFinder;
 import java.nio.file.Path;
+import java.time.LocalDate;
+import java.util.Map;
 
 public abstract class CreatorPackage implements Runnable {
     Customer customer;
-    FileUpdateFinder fileUpdateFinder;
+    Map<LocalDate, Map<String, Path>> mapOfPathsUpdateFiles;
     Path folderForPackage;
 
-    public CreatorPackage(Customer customer, FileUpdateFinder fileUpdateFinder, Path folderForPackage) {
+    public CreatorPackage(Customer customer, Map<LocalDate, Map<String, Path>> mapOfPathsUpdateFiles, Path folderForPackage) {
         this.customer = customer;
-        this.fileUpdateFinder = fileUpdateFinder;
+        this.mapOfPathsUpdateFiles = mapOfPathsUpdateFiles;
         this.folderForPackage = folderForPackage;
     }
 }

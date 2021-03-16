@@ -1,8 +1,8 @@
 package model.services.creatorsPackage;
 
 import lombok.SneakyThrows;
-import model.Customer;
-import model.UpdateFile;
+import model.dtoMd.Customer;
+import model.dtoMd.UpdateFile;
 import model.dao.FileUpdateFinder;
 
 import java.io.File;
@@ -16,14 +16,14 @@ import java.util.Map;
 
 public class CreatorPackageFolder extends CreatorPackage{
 
-    public CreatorPackageFolder(Customer customer, FileUpdateFinder fileUpdateFinder, Path folderForPackage) {
-        super(customer, fileUpdateFinder, folderForPackage);
+    public CreatorPackageFolder(Customer customer, Map<LocalDate, Map<String, Path>> mapOfPathsUpdateFiles, Path folderForPackage) {
+        super(customer, mapOfPathsUpdateFiles, folderForPackage);
     }
 
     @Override
     public void run() {
         Path folderForCopy = createFolderForCopy();
-        for (Map.Entry<LocalDate, Map<String, Path>> mapFoldersUpdates : fileUpdateFinder.getMapOfPathsUpdateFiles().entrySet()) {
+        for (Map.Entry<LocalDate, Map<String, Path>> mapFoldersUpdates :mapOfPathsUpdateFiles.entrySet()) {
             LocalDate ldFolderOfOneDay = mapFoldersUpdates.getKey();
             if (ldFolderOfOneDay.isAfter(customer.getFrom().minusDays(1L)) && ldFolderOfOneDay.isBefore(customer.getTo().plusDays(1L))) {
                 for (Map.Entry<String, Path> updateFile : mapFoldersUpdates.getValue().entrySet()) {

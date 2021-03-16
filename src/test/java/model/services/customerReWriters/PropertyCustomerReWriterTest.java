@@ -8,16 +8,7 @@ import java.util.Arrays;
 class PropertyCustomerReWriterTest {
 
 
-    PropertyCustomerReWriter propertyCustomerReWriter = new PropertyCustomerReWriter(
-            new ArrayList<>(Arrays.asList("karqiez", "acn", "bcn", "qwe")));
 
-    @Test
-    void saveCustomerInFile() {
-        propertyCustomerReWriter.addCustomerInFile();
-    }
 
-    @Test
-    void loadCustomersFromFile() {
-        propertyCustomerReWriter.getCustomersFromFile().forEach(System.out::println);
-    }
+
 }

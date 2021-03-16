@@ -1,8 +1,8 @@
 package model.services.customerReWriters;
 
 import lombok.SneakyThrows;
-import model.Customer;
-import model.UpdateFile;
+import model.dtoMd.Customer;
+import model.dtoMd.UpdateFile;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -11,12 +11,10 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 public class PropertyCustomerReWriter extends CustomerReWriter {
-    public PropertyCustomerReWriter(List<String> parametersList) {
-        super(parametersList);
-    }
+
 
     @SneakyThrows(IOException.class)
-    public void addCustomerInFile() {
+    public void addCustomerInFile(Customer customer) {
         Properties customersProperty = new Properties();
         if (Files.exists(fileCustomerSettings)) {
             customersProperty.load(Files.newBufferedReader(fileCustomerSettings));
@@ -51,12 +49,17 @@ public class PropertyCustomerReWriter extends CustomerReWriter {
 
     @SneakyThrows
     @Override
-    public void deleteCustomerFromFile() {
+    public void deleteCustomerInFile(Customer customer) {
         Properties customersProperty = new Properties();
         if (Files.notExists(fileCustomerSettings)) return;
         customersProperty.load(Files.newBufferedReader(fileCustomerSettings));
         customersProperty.remove(customer.getName());
         customersProperty.store(new FileOutputStream(fileCustomerSettings.toFile()),
                 LocalDateTime.now().toString());
+    }
+
+    @Override
+    public void rewriteCustomerInFile(Customer customer) {
+        addCustomerInFile(customer);
     }
 }
