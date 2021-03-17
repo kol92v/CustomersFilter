@@ -20,5 +20,5 @@ public abstract class CustomerReWriter {
 
     public abstract void deleteCustomerInFile(Customer customer);
 
-    public abstract void rewriteCustomerInFile(Customer customer);
+    public abstract void rewriteBasesCustomerInFile(Customer customer);
 }

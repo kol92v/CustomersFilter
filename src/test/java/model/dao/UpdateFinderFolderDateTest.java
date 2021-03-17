@@ -4,20 +4,14 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.attribute.BasicFileAttributes;
-import java.time.LocalDate;
-import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class FileUpdateFinderTest {
+class UpdateFinderFolderDateTest {
 
     @Mock
-    FileUpdateFinder fileUpdateFinder;
+    UpdateFinderFolderDate updateFinderFolderDate;
 
     @Test
     void preVisitDirectory() {
@@ -48,10 +42,10 @@ class FileUpdateFinderTest {
 
     @Test
     void visitFile() {
-        fileUpdateFinder = Mockito.mock(FileUpdateFinder.class);
+        updateFinderFolderDate = Mockito.mock(UpdateFinderFolderDate.class);
         attrs = Mockito.mock(BasicFileAttributes.class);
         try {
-            fileUpdateFinder.visitFile(Paths.get(System.getProperty("user.dir")), attrs);
+            updateFinderFolderDate.visitFile(Paths.get(System.getProperty("user.dir")), attrs);
         } catch (IOException e) {
             System.out.println("error in test");
         }

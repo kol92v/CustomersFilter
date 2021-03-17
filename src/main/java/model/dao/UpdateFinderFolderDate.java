@@ -1,6 +1,7 @@
 package model.dao;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.SneakyThrows;
 
 import java.io.IOException;
@@ -13,20 +14,22 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
-public @Data
-class FileUpdateFinder implements FileVisitor<Path> {
+public class UpdateFinderFolderDate implements UpdateFinder, FileVisitor<Path> {
     //LocalDate - a directory uses a date for its name
     //String - name of UpdateFile
     //Path - paths to updateFiles
-    private Map<LocalDate, Map<String, Path>> mapOfPathsUpdateFiles = new HashMap<>();
+    private Map<LocalDate, Map<String, Path>> mapOfPathsUpdateFiles;
     private LocalDate from;
     private LocalDate to;
-    private Path pathToUpdateFiles;
 
 
     @SneakyThrows(IOException.class)
-    public void generateMapOfFilesPaths(Path pathToUpdateFiles, LocalDate form, LocalDate to) {
+    public Map<LocalDate, Map<String, Path>> generateMapOfFilesPaths(Path pathToUpdateFiles, LocalDate from, LocalDate to) {
+        this.from = from;
+        this.to = to;
+        mapOfPathsUpdateFiles = new HashMap<>();
         Files.walkFileTree(pathToUpdateFiles, this);
+        return mapOfPathsUpdateFiles;
     }
 
     @Override

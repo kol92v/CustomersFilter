@@ -12,31 +12,39 @@ import java.util.*;
 
 public class PropertyCustomerReWriter extends CustomerReWriter {
 
-
     @SneakyThrows(IOException.class)
-    public void addCustomerInFile(Customer customer) {
+    private Properties getProperties() {
         Properties customersProperty = new Properties();
         if (Files.exists(fileCustomerSettings)) {
             customersProperty.load(Files.newBufferedReader(fileCustomerSettings));
         } else {
             Files.createFile(fileCustomerSettings);
         }
+        return customersProperty;
+    }
+
+    @SneakyThrows(IOException.class)
+    private void saveProperties(Properties customersProperty) {
+        customersProperty.store(new FileOutputStream(fileCustomerSettings.toFile()),
+                LocalDateTime.now().toString());
+    }
+
+
+    public void addCustomerInFile(Customer customer) {
+        Properties customersProperty = getProperties();
         StringBuilder updateFiles = new StringBuilder();
         for (UpdateFile update : customer.getUpdateFileList()) {
             updateFiles.append(update.getName()).append(";");
         }
         customersProperty.setProperty(customer.getName(), updateFiles.toString().trim());
-        customersProperty.store(new FileOutputStream(fileCustomerSettings.toFile()),
-                LocalDateTime.now().toString());
+        saveProperties(customersProperty);
     }
 
-    @SneakyThrows(IOException.class)
     @Override
     public List<Customer> getCustomersFromFile() {
         if (Files.notExists(fileCustomerSettings)) return Collections.emptyList();
         List<Customer> customers = new ArrayList<>();
-        Properties customersProperty = new Properties();
-        customersProperty.load(Files.newBufferedReader(fileCustomerSettings));
+        Properties customersProperty = getProperties();
         customersProperty.forEach((o, o2) -> {
             Customer customerFromProp = new Customer((String) o);
             String[] updates = ((String) o2).split(";");
@@ -50,16 +58,14 @@ public class PropertyCustomerReWriter extends CustomerReWriter {
     @SneakyThrows
     @Override
     public void deleteCustomerInFile(Customer customer) {
-        Properties customersProperty = new Properties();
         if (Files.notExists(fileCustomerSettings)) return;
-        customersProperty.load(Files.newBufferedReader(fileCustomerSettings));
+        Properties customersProperty = getProperties();
         customersProperty.remove(customer.getName());
-        customersProperty.store(new FileOutputStream(fileCustomerSettings.toFile()),
-                LocalDateTime.now().toString());
+        saveProperties(customersProperty);
     }
 
     @Override
-    public void rewriteCustomerInFile(Customer customer) {
+    public void rewriteBasesCustomerInFile(Customer customer) {
         addCustomerInFile(customer);
     }
 }

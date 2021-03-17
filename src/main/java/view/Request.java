@@ -4,13 +4,14 @@ import lombok.Builder;
 import lombok.Getter;
 import view.dtoVw.ClientVw;
 
+import java.nio.file.Path;
 import java.util.List;
-
+@Getter
 public @Builder class Request {
-    private @Getter String sourceFolder;
-    private @Getter String targetFolder;
-    private @Getter List<ClientVw> clientList;
-    private @Getter TypeRequest typeRequest;
+    private Path sourceFolder;
+    private Path targetFolder;
+    private List<ClientVw> clientList;
+    private TypeRequest typeRequest;
 
     public enum TypeRequest {
         DeleteClients,
@@ -18,7 +19,8 @@ public @Builder class Request {
         DeleteBases,
         AddBases,
         GetClients,
-        Start
+        GetBases,
+        StartToPackage
     }
 
 

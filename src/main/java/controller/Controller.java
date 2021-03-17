@@ -1,17 +1,29 @@
 package controller;
 
 
+import controller.executorsReq.ExecutorRequest;
+import controller.executorsReq.ExecutorRequestToFolder;
+import controller.executorsResp.ExecutorResponse;
 import lombok.SneakyThrows;
+import model.dao.UpdateFinderFolderDate;
+import model.dao.UpdateFinder;
+import model.services.customerReWriters.CustomerReWriter;
+import model.services.customerReWriters.PropertyCustomerReWriter;
 import view.Request;
 import view.View;
 import view.viewFX.ViewFX;
 
-public class Controller extends Thread{
+public class Controller extends Thread {
     private final View view = new ViewFX();
+    private final CustomerReWriter customerReWriter = new PropertyCustomerReWriter();
+    private final UpdateFinder updateFinder = new UpdateFinderFolderDate();
+    private final ExecutorResponse executorResponse = new ExecutorResponse(view.getResponseBlockingQueue());
+    private final ExecutorRequest executorRequest = new ExecutorRequestToFolder(customerReWriter, updateFinder, executorResponse);
 
-    private Controller(){}
+    private Controller() {
+    }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         Controller controller = new Controller();
         Thread viewThread = new Thread(controller.view);
         viewThread.start();
@@ -19,54 +31,12 @@ public class Controller extends Thread{
         controller.start();
     }
 
-    @SneakyThrows
+    @SneakyThrows(InterruptedException.class)
     @Override
     public void run() {
         while (true) {
             Request requestFromView = view.getRequestBlockingQueue().take();
-            executeRequest(requestFromView);
+            executorRequest.executeRequest(requestFromView);
         }
     }
-
-    private void executeRequest(Request request) {
-        if (request.getTypeRequest().equals(Request.TypeRequest.DeleteClients))
-            deleteClients(request);
-        else if (request.getTypeRequest().equals(Request.TypeRequest.AddClient))
-            addClient(request);
-        else if (request.getTypeRequest().equals(Request.TypeRequest.DeleteBases))
-            deleteBases(request);
-        else if (request.getTypeRequest().equals(Request.TypeRequest.AddBases))
-            addBases(request);
-        else if (request.getTypeRequest().equals(Request.TypeRequest.GetClients))
-            getClients(request);
-        else if (request.getTypeRequest().equals(Request.TypeRequest.Start))
-            startToPackage(request);
-        else throw new UnsupportedOperationException();
-    }
-
-    private void startToPackage(Request request) {
-
-    }
-
-    private void getClients(Request request) {
-
-    }
-
-    private void addBases(Request request) {
-
-    }
-
-    private void deleteClients(Request request) {
-
-    }
-
-    private void addClient(Request request) {
-
-    }
-
-    private void deleteBases(Request request) {
-
-    }
-
-
 }

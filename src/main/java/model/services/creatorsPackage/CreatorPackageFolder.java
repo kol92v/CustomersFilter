@@ -3,8 +3,6 @@ package model.services.creatorsPackage;
 import lombok.SneakyThrows;
 import model.dtoMd.Customer;
 import model.dtoMd.UpdateFile;
-import model.dao.FileUpdateFinder;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -33,7 +31,6 @@ public class CreatorPackageFolder extends CreatorPackage{
                 }
             }
         }
-
     }
 
     @SneakyThrows(IOException.class)
@@ -59,6 +56,4 @@ public class CreatorPackageFolder extends CreatorPackage{
         Path target = Paths.get(folderForCopy.toString() + File.separator + updateFile.getFileName());
         Files.copy(updateFile, target);
     }
-
-
 }
