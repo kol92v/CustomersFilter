@@ -1,4 +1,4 @@
-package model.dtoMd;
+package mygroup.services.dtoMd;
 
 
 import lombok.*;

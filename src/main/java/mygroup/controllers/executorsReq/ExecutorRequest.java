@@ -1,11 +1,12 @@
-package controller.executorsReq;
+package mygroup.controllers.executorsReq;
 
-import controller.Converter;
-import controller.executorsResp.ExecutorResponse;
-import model.dao.UpdateFinder;
-import model.dtoMd.Customer;
-import model.services.creatorsPackage.CreatorPackage;
-import model.services.customerReWriters.CustomerReWriter;
+import mygroup.controllers.Converter;
+import mygroup.controllers.executorsReq.RequestCommand;
+import mygroup.controllers.executorsResp.ExecutorResponse;
+import mygroup.dao.UpdateFinder;
+import mygroup.services.dtoMd.Customer;
+import mygroup.services.creatorsPackage.CreatorPackage;
+import mygroup.services.customerReWriters.CustomerReWriter;
 import view.Request;
 
 import java.nio.file.Path;

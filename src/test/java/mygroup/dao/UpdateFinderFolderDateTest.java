@@ -1,4 +1,4 @@
-package model.dao;
+package mygroup.dao;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;

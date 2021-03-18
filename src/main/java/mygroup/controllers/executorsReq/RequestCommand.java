@@ -1,11 +1,11 @@
-package controller.executorsReq;
+package mygroup.controllers.executorsReq;
 
-import controller.Converter;
-import controller.executorsResp.ExecutorResponse;
+import mygroup.controllers.Converter;
+import mygroup.controllers.executorsResp.ExecutorResponse;
 import lombok.Getter;
-import model.dao.UpdateFinder;
-import model.dtoMd.Customer;
-import model.services.customerReWriters.CustomerReWriter;
+import mygroup.dao.UpdateFinder;
+import mygroup.services.dtoMd.Customer;
+import mygroup.services.customerReWriters.CustomerReWriter;
 import view.Request;
 
 import java.util.ArrayList;

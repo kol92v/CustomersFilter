@@ -1,7 +1,5 @@
-package model.dao;
+package mygroup.dao;
 
-import lombok.Data;
-import lombok.Getter;
 import lombok.SneakyThrows;
 
 import java.io.IOException;

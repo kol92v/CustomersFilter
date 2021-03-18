@@ -1,10 +1,7 @@
-package controller.executorsResp;
+package mygroup.controllers.executorsResp;
 
-import view.Request;
 import view.Response;
-import view.View;
 
-import java.util.List;
 import java.util.concurrent.BlockingQueue;
 
 public class ExecutorResponse {

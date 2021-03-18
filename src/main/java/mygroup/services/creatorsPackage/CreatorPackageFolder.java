@@ -1,8 +1,8 @@
-package model.services.creatorsPackage;
+package mygroup.services.creatorsPackage;
 
 import lombok.SneakyThrows;
-import model.dtoMd.Customer;
-import model.dtoMd.UpdateFile;
+import mygroup.services.dtoMd.Customer;
+import mygroup.services.dtoMd.UpdateFile;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;

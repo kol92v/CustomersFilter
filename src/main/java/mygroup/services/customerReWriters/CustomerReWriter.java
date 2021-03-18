@@ -1,8 +1,6 @@
-package model.services.customerReWriters;
+package mygroup.services.customerReWriters;
 
-import lombok.Setter;
-import model.dtoMd.Customer;
-import model.dtoMd.UpdateFile;
+import mygroup.services.dtoMd.Customer;
 
 import java.io.File;
 import java.nio.file.Path;

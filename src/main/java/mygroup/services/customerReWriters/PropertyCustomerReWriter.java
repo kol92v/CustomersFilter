@@ -1,8 +1,8 @@
-package model.services.customerReWriters;
+package mygroup.services.customerReWriters;
 
 import lombok.SneakyThrows;
-import model.dtoMd.Customer;
-import model.dtoMd.UpdateFile;
+import mygroup.services.dtoMd.Customer;
+import mygroup.services.dtoMd.UpdateFile;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

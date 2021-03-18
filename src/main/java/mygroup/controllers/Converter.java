@@ -1,11 +1,9 @@
-package controller;
+package mygroup.controllers;
 
-import model.dtoMd.Customer;
-import model.dtoMd.UpdateFile;
+import mygroup.services.dtoMd.Customer;
+import mygroup.services.dtoMd.UpdateFile;
 import view.dtoVw.BaseVw;
 import view.dtoVw.ClientVw;
-
-import java.util.List;
 
 public class Converter {
     private Converter() {}

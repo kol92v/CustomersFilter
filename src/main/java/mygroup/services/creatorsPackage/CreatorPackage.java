@@ -1,6 +1,6 @@
-package model.services.creatorsPackage;
+package mygroup.services.creatorsPackage;
 
-import model.dtoMd.Customer;
+import mygroup.services.dtoMd.Customer;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.Map;

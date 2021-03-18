@@ -23,5 +23,10 @@ public @Builder class Request {
         StartToPackage
     }
 
+    public enum TypeController {
+        CRUDProperty,
+        PckDir
+    }
+
 
 }

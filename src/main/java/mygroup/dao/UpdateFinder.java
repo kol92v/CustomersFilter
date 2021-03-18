@@ -1,4 +1,4 @@
-package model.dao;
+package mygroup.dao;
 
 import java.nio.file.Path;
 import java.time.LocalDate;

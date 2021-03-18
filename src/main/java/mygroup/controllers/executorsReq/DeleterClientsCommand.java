@@ -1,8 +1,8 @@
-package controller.executorsReq;
+package mygroup.controllers.executorsReq;
 
-import controller.executorsResp.ExecutorResponse;
-import model.dao.UpdateFinder;
-import model.services.customerReWriters.CustomerReWriter;
+import mygroup.controllers.executorsResp.ExecutorResponse;
+import mygroup.dao.UpdateFinder;
+import mygroup.services.customerReWriters.CustomerReWriter;
 import view.Request;
 
 public class DeleterClientsCommand extends RequestCommand {

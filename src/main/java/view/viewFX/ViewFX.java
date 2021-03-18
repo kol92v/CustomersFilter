@@ -16,7 +16,7 @@ import java.util.concurrent.BlockingQueue;
 
 public class ViewFX extends Application implements View {
     @Override
-    public void run() {
+    public void runView() {
         launch();
     }
 
