@@ -1,17 +1,20 @@
 package view;
 
-import lombok.Builder;
+import lombok.*;
 import view.dtoVw.ClientVw;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public @Builder class Response {
-    private List<ClientVw> clientVwList;
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class Response {
+    private List<ClientVw> clientVwList = new ArrayList<>();
 
-    private TypeResponse typeResponse;
+    private TypeMessage typeMessage;
 
-    public enum TypeResponse {
-        UpdateBaseList,
-        UpdateClientList
-    }
+
 }

@@ -2,10 +2,11 @@ package mygroup.services.dtoMd;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Locale;
 
-public @Data class UpdateFile {
+public @Data class UpdateFile implements Serializable {
     private String name;
     private LocalDate date;
 

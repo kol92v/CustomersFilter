@@ -29,8 +29,8 @@ public class PropertyCustomerReWriter extends CustomerReWriter {
                 LocalDateTime.now().toString());
     }
 
-
-    public void addCustomerInFile(Customer customer) {
+    @SneakyThrows(CloneNotSupportedException.class)
+    public Customer addCustomerInFile(Customer customer) {
         Properties customersProperty = getProperties();
         StringBuilder updateFiles = new StringBuilder();
         for (UpdateFile update : customer.getUpdateFileList()) {
@@ -38,7 +38,9 @@ public class PropertyCustomerReWriter extends CustomerReWriter {
         }
         customersProperty.setProperty(customer.getName(), updateFiles.toString().trim());
         saveProperties(customersProperty);
+        return customer.clone();
     }
+
 
     @Override
     public List<Customer> getCustomersFromFile() {
@@ -55,17 +57,23 @@ public class PropertyCustomerReWriter extends CustomerReWriter {
         return customers;
     }
 
-    @SneakyThrows
+    @SneakyThrows(CloneNotSupportedException.class)
     @Override
-    public void deleteCustomerInFile(Customer customer) {
-        if (Files.notExists(fileCustomerSettings)) return;
+    public Customer deleteCustomerInFile(Customer customer) {
+        if (Files.notExists(fileCustomerSettings)) return customer.clone();
         Properties customersProperty = getProperties();
         customersProperty.remove(customer.getName());
         saveProperties(customersProperty);
+        return customer.clone();
     }
 
     @Override
-    public void rewriteBasesCustomerInFile(Customer customer) {
-        addCustomerInFile(customer);
+    public Customer addBasesCustomerInFile(Customer customer) {
+        return addCustomerInFile(customer);
+    }
+
+    @Override
+    public Customer deleteBasesCustomerInFile(Customer customer) {
+        return addCustomerInFile(customer);
     }
 }

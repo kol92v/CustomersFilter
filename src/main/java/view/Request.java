@@ -1,32 +1,26 @@
 package view;
 
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
+import lombok.Setter;
 import view.dtoVw.ClientVw;
 
 import java.nio.file.Path;
 import java.util.List;
 @Getter
-public @Builder class Request {
+@Setter
+@Builder
+public class Request {
     private Path sourceFolder;
     private Path targetFolder;
     private List<ClientVw> clientList;
-    private TypeRequest typeRequest;
-
-    public enum TypeRequest {
-        DeleteClients,
-        AddClient,
-        DeleteBases,
-        AddBases,
-        GetClients,
-        GetBases,
-        StartToPackage
-    }
+    private TypeMessage typeMessage;
+    private TypeController typeController;
 
     public enum TypeController {
         CRUDProperty,
-        PckDir
+        PckDirectory
     }
-
 
 }

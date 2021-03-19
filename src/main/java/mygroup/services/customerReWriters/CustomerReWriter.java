@@ -1,6 +1,7 @@
 package mygroup.services.customerReWriters;
 
 import mygroup.services.dtoMd.Customer;
+import mygroup.services.dtoMd.UpdateFile;
 
 import java.io.File;
 import java.nio.file.Path;
@@ -12,11 +13,13 @@ public abstract class CustomerReWriter {
             + File.separator + "customersSettings" + File.separator + "customers.properties");
 
 
-    public abstract void addCustomerInFile(Customer customer);
+    public abstract Customer addCustomerInFile(Customer customer);
 
     public abstract List<Customer> getCustomersFromFile();
 
-    public abstract void deleteCustomerInFile(Customer customer);
+    public abstract Customer deleteCustomerInFile(Customer customer);
 
-    public abstract void rewriteBasesCustomerInFile(Customer customer);
+    public abstract Customer addBasesCustomerInFile(Customer customer);
+
+    public abstract Customer deleteBasesCustomerInFile(Customer customer);
 }
