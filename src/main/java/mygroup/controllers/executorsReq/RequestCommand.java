@@ -6,6 +6,6 @@ import view.TypeMessage;
 
 public interface RequestCommand {
 
-    TypeMessage getTypeRequest();
+    TypeMessage getTypeMessage();
     Response executeRequest(Request request);
 }

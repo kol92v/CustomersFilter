@@ -24,7 +24,7 @@ public class FolderCommand extends PackageCommand{
     }
 
     @Override
-    public TypeMessage getTypeRequest() {
+    public TypeMessage getTypeMessage() {
         return TypeMessage.StartToPackage;
     }
 

@@ -1,8 +1,7 @@
 package mygroup.controllers;
 
 
-import mygroup.controllers.ControllerCommand;
-import mygroup.controllers.executorsReq.CRUDReq.*;
+import mygroup.controllers.executorsReq.CRUDCustomerReq.*;
 import mygroup.services.customerReWriters.CustomerReWriter;
 import mygroup.services.customerReWriters.PropertyCustomerReWriter;
 import view.Request;
@@ -13,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ControllerCRUDProp implements ControllerCommand {
-    private final Map<TypeMessage, CRUDCommand> mapCRUD = new HashMap<>();
+    private final Map<TypeMessage, CRUDCustomerCommand> mapCRUD = new HashMap<>();
     {
         CustomerReWriter customerReWriter = new PropertyCustomerReWriter();
         mapCRUD.put(TypeMessage.DeleteClients, new DeleterClientsCommand(customerReWriter));

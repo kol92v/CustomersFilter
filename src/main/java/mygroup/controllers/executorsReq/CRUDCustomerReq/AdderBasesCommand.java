@@ -1,18 +1,18 @@
-package mygroup.controllers.executorsReq.CRUDReq;
+package mygroup.controllers.executorsReq.CRUDCustomerReq;
 
 import mygroup.services.customerReWriters.CustomerReWriter;
 import view.Request;
 import view.Response;
 import view.TypeMessage;
 
-public class DeleterBasesCommand extends CRUDCommand{
-    public DeleterBasesCommand(CustomerReWriter customerReWriter) {
+public class AdderBasesCommand extends CRUDCustomerCommand {
+    public AdderBasesCommand(CustomerReWriter customerReWriter) {
         super(customerReWriter);
     }
 
     @Override
-    public TypeMessage getTypeRequest() {
-        return TypeMessage.DeleteBases;
+    public TypeMessage getTypeMessage() {
+        return TypeMessage.AddBases;
     }
 
     @Override

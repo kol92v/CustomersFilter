@@ -5,6 +5,7 @@ import mygroup.services.dtoMd.UpdateFile;
 import view.dtoVw.BaseVw;
 import view.dtoVw.ClientVw;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,14 +29,23 @@ public class CnvrtCustomerClient {
         return customer;
     }
 
-    public static List<ClientVw> customersToClients(List<Customer> customers) {
+    public static List<ClientVw> customerToClient(List<Customer> customers) {
         return customers.stream().map(CnvrtCustomerClient::customerToClient)
                 .collect(Collectors.toList());
     }
 
-    public static List<Customer> clientsToCustomers(List<ClientVw> clients) {
+    public static List<Customer> clientToCustomer(List<ClientVw> clients) {
         return clients.stream().map(CnvrtCustomerClient::clientToCustomer)
                 .collect(Collectors.toList());
     }
+
+    public static List<ClientVw> customerToClient(Customer... customers) {
+        return customerToClient(Arrays.asList(customers));
+    }
+
+    public static List<Customer> clientToCustomer(ClientVw... clients) {
+        return clientToCustomer(Arrays.asList(clients));
+    }
+
 
 }

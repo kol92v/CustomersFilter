@@ -1,17 +1,17 @@
-package mygroup.controllers.executorsReq.CRUDReq;
+package mygroup.controllers.executorsReq.CRUDCustomerReq;
 
 import mygroup.services.customerReWriters.CustomerReWriter;
 import view.Request;
 import view.Response;
 import view.TypeMessage;
 
-public class GetterBasesCommand extends CRUDCommand{
+public class GetterBasesCommand extends CRUDCustomerCommand {
     public GetterBasesCommand(CustomerReWriter customerReWriter) {
         super(customerReWriter);
     }
 
     @Override
-    public TypeMessage getTypeRequest() {
+    public TypeMessage getTypeMessage() {
         return TypeMessage.GetBases;
     }
 
