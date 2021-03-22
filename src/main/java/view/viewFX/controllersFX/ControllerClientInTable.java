@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 
 public class ControllerClientInTable {
@@ -18,6 +19,9 @@ public class ControllerClientInTable {
     private CheckBox checkBox;
 
     @FXML
+    private Hyperlink clientName;
+
+    @FXML
     private TextField dateFrom;
 
     @FXML
@@ -25,9 +29,6 @@ public class ControllerClientInTable {
 
     @FXML
     void initialize() {
-        assert checkBox != null : "fx:id=\"checkBox\" was not injected: check your FXML file 'clientInTable.fxml'.";
-        assert dateFrom != null : "fx:id=\"dateFrom\" was not injected: check your FXML file 'clientInTable.fxml'.";
-        assert dateTo != null : "fx:id=\"dateTo\" was not injected: check your FXML file 'clientInTable.fxml'.";
-
+        clientName.setOnAction(event -> System.out.println(clientName.textProperty().getValue()));
     }
 }

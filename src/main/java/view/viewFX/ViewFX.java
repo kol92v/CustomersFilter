@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import mygroup.controllers.MainController;
 import view.Request;
 import view.View;
 
@@ -15,6 +16,8 @@ import java.nio.file.Paths;
 import java.util.concurrent.BlockingQueue;
 
 public class ViewFX extends Application implements View {
+    MainController controller = new MainController();
+
     @Override
     public void runView() {
         launch();
@@ -30,5 +33,7 @@ public class ViewFX extends Application implements View {
         primaryStage.setScene(new Scene(root, 700, 600));
         primaryStage.show();
     }
+
+
 
 }

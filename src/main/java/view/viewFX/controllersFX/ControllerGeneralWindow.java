@@ -1,14 +1,17 @@
 package view.viewFX.controllersFX;
 
+import java.io.File;
 import java.net.URL;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import lombok.SneakyThrows;
 
 public class ControllerGeneralWindow {
 
@@ -63,10 +66,38 @@ public class ControllerGeneralWindow {
         return null;
     }
 
+    @SneakyThrows
     @FXML
     void initialize() {
         dateFromGeneral.setTextFormatter(new TextFormatter<String>(ControllerGeneralWindow::regexDate));
 
+
+        BorderPane borderPane = getClientInTable();
+        SplitPane splitPane = (SplitPane) borderPane.getChildren().get(0);
+        AnchorPane anchorPane = (AnchorPane) splitPane.getItems().get(1);
+        Hyperlink clientName = (Hyperlink) anchorPane.getChildren().get(0);
+        clientName.textProperty().setValue("hi");
+        System.out.println(clientName);
+        vboxClients.getChildren().add(borderPane);
+
+        BorderPane borderPane1 = getClientInTable();
+        SplitPane splitPane1 = (SplitPane) borderPane1.getChildren().get(0);
+        AnchorPane anchorPane1 = (AnchorPane) splitPane1.getItems().get(1);
+        Hyperlink clientName1 = (Hyperlink) anchorPane1.getChildren().get(0);
+        clientName1.textProperty().setValue("hi2");
+        vboxClients.getChildren().add(borderPane1);
+
+//        clientName.setOnAction(event -> System.out.println(clientName.textProperty().getValue()));
+//        clientName1.setOnAction(event -> System.out.println(clientName1.textProperty().getValue()));
+
+    }
+
+    @SneakyThrows
+    private BorderPane getClientInTable() {
+        return FXMLLoader
+                .load(new URL("file:" + Paths.get(System.getProperty("user.dir").toString() +
+                        File.separator +  "target" + File.separator + "classes" +
+                        File.separator + "clientInTable.fxml")));
     }
 
     
