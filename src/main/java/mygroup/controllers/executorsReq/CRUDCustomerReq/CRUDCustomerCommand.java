@@ -8,6 +8,7 @@ import mygroup.services.customerReWriters.CustomerReWriter;
 import mygroup.services.dtoMd.Customer;
 import view.Request;
 import view.Response;
+import view.TypeMessage;
 
 import java.util.List;
 
@@ -24,8 +25,8 @@ public abstract class CRUDCustomerCommand implements RequestCommand, ResponseCom
     }
 
     @Override
-    public Response createResponse(Request request, Customer... result) {
-        return Response.builder().typeMessage(request.getTypeMessage())
+    public Response createResponse(TypeMessage typeMessage, Customer... result) {
+        return Response.builder().typeMessage(typeMessage)
                 .clientVwList(CnvrtCustomerClient.customerToClient(result))
                 .build();
     }

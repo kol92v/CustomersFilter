@@ -10,8 +10,8 @@ import java.util.List;
 public interface ResponseCommand<T> {
 
     TypeMessage getTypeMessage();
-    Response createResponse(Request request, T... result);
-    default Response createResponse(Request request, List<T> result) {
-        return createResponse(request, (T) result.toArray(new Object[0]));
+    Response createResponse(TypeMessage typeMessage, T... result);
+    default Response createResponse(TypeMessage typeMessage, List<T> result) {
+        return createResponse(typeMessage, (T) result.toArray(new Object[0]));
     }
 }

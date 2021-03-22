@@ -1,9 +1,11 @@
 package mygroup.controllers.executorsReq.CRUDCustomerReq;
 
 import mygroup.services.customerReWriters.CustomerReWriter;
+import mygroup.services.dtoMd.Customer;
 import view.Request;
 import view.Response;
 import view.TypeMessage;
+import java.util.List;
 
 public class GetterClientsCommand extends CRUDCustomerCommand {
     public GetterClientsCommand(CustomerReWriter customerReWriter) {
@@ -17,6 +19,7 @@ public class GetterClientsCommand extends CRUDCustomerCommand {
 
     @Override
     public Response executeRequest(Request request) {
-        customerReWriter.getCustomersFromFile();
+        List<Customer> customerList = customerReWriter.getCustomersFromFile();
+        return createResponse(request.getTypeMessage(), customerList);
     }
 }

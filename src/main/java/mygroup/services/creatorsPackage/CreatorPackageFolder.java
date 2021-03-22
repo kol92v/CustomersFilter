@@ -21,7 +21,7 @@ public class CreatorPackageFolder extends CreatorPackage{
     @Override
     public void run() {
         Path folderForCopy = createFolderForCopy();
-        for (Map.Entry<LocalDate, Map<String, Path>> mapFoldersUpdates :mapOfPathsUpdateFiles.entrySet()) {
+        for (Map.Entry<LocalDate, Map<String, Path>> mapFoldersUpdates : mapOfPathsUpdateFiles.entrySet()) {
             LocalDate ldFolderOfOneDay = mapFoldersUpdates.getKey();
             if (ldFolderOfOneDay.isAfter(customer.getFrom().minusDays(1L)) && ldFolderOfOneDay.isBefore(customer.getTo().plusDays(1L))) {
                 for (Map.Entry<String, Path> updateFile : mapFoldersUpdates.getValue().entrySet()) {

@@ -57,6 +57,13 @@ public class PropertyCustomerReWriter extends CustomerReWriter {
         return customers;
     }
 
+    @Override
+    public Customer getBasesCustomerFromFile(Customer customer) {
+        for (Customer c : getCustomersFromFile())
+            if (c.getName().equals(customer.getName())) return c;
+        return new Customer("");
+    }
+
     @SneakyThrows(CloneNotSupportedException.class)
     @Override
     public Customer deleteCustomerInFile(Customer customer) {

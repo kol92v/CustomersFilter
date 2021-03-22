@@ -7,7 +7,9 @@ import lombok.Setter;
 import view.dtoVw.ClientVw;
 
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
+
 @Getter
 @Setter
 @Builder
@@ -16,11 +18,12 @@ public class Request {
     private Path targetFolder;
     private List<ClientVw> clientList;
     private TypeMessage typeMessage;
-    private TypeController typeController;
+    private List<TypeController> typeController;
+
 
     public enum TypeController {
-        CRUDProperty,
-        PckDirectory
+        CRUD, CRUDProperty,
+        PckDirectory, FinderFolderDate
     }
 
 }

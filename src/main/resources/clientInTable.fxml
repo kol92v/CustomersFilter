@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:mainController="view.viewFX.controllersFX.ControllerClientInTable">
+<BorderPane xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.viewFX.controllersFX.ControllerClientInTable">
    <center>
       <SplitPane dividerPositions="0.0602, 0.4675, 0.7492" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="327.0" style="-fx-border-color: #C0C0C0;">
         <items>

@@ -12,11 +12,9 @@ import java.util.List;
 public abstract class PackageCommand implements RequestCommand {
     private final CustomersFacade customersFacade = new CustomersFacade();
     protected UpdateFinder updateFinder;
-    protected CreatorPackage creatorPackage;
 
-    public PackageCommand(UpdateFinder updateFinder, CreatorPackage creatorPackage) {
+    public PackageCommand(UpdateFinder updateFinder) {
         this.updateFinder = updateFinder;
-        this.creatorPackage = creatorPackage;
     }
 
     public List<Customer> getCustomerList(Request request) {

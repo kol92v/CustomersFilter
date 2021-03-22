@@ -22,4 +22,6 @@ public abstract class CustomerReWriter {
     public abstract Customer addBasesCustomerInFile(Customer customer);
 
     public abstract Customer deleteBasesCustomerInFile(Customer customer);
+
+    public abstract Customer getBasesCustomerFromFile(Customer customer);
 }

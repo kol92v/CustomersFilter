@@ -25,7 +25,7 @@ public class DeleterClientsCommand extends CRUDCustomerCommand {
         List<Customer> remoteCustomers = new ArrayList<>();
         getCustomerList(request).forEach(customer ->
             remoteCustomers.add(customerReWriter.deleteCustomerInFile(customer)));
-        return createResponse(request, remoteCustomers);
+        return createResponse(request.getTypeMessage(), remoteCustomers);
     }
 
 }

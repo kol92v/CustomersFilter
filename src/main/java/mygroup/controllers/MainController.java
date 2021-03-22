@@ -15,6 +15,6 @@ public class MainController {
     }
 
     public Response processingRequest(Request request) {
-        return mapController.get(request.getTypeController()).processingRequest(request);
+        return mapController.get(request.getTypeController().get(0)).processingRequest(request);
     }
 }
