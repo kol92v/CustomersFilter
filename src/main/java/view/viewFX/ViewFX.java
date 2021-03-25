@@ -26,7 +26,7 @@ public class ViewFX extends Application implements View {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader
-                .load(new URL("file:" + Paths.get(System.getProperty("user.dir").toString() +
+                .load(new URL("file:" + Paths.get(System.getProperty("user.dir") +
                                 File.separator +  "target" + File.separator + "classes" +
                                 File.separator + "generalWindow.fxml")));
         primaryStage.setTitle("Update file filter");

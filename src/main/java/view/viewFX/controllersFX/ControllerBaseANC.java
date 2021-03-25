@@ -4,13 +4,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import lombok.Getter;
-import mygroup.controllers.MainController;
+import javafx.scene.control.TextField;
 
-@Getter
-public class ControllerBaseInTable {
-    private final MainController mainController = new MainController();
+public class ControllerBaseANC {
 
     @FXML
     private ResourceBundle resources;
@@ -19,10 +15,10 @@ public class ControllerBaseInTable {
     private URL location;
 
     @FXML
-    private Label baseNameBIT;
+    private CheckBox checkBANC;
 
     @FXML
-    private CheckBox checkBoxBIT;
+    private TextField baseNameBANC;
 
     @FXML
     void initialize() {

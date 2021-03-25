@@ -7,17 +7,18 @@
 <?import javafx.scene.layout.BorderPane?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="172.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.viewFX.controllersFX.ControllerBaseInTable">
+
    <center>
       <SplitPane dividerPositions="0.8448" prefHeight="160.0" prefWidth="200.0" style="-fx-border-color: #C0C0C0;" BorderPane.alignment="CENTER">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <Label fx:id="labelBaseName" layoutX="2.0" text="Base name" />
+                  <Label fx:id="baseNameBIT" layoutX="2.0" text="Base name" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <CheckBox fx:id="checkBox" layoutX="4.0" mnemonicParsing="false" />
+                  <CheckBox fx:id="checkBoxBIT" layoutX="4.0" mnemonicParsing="false" />
                </children>
             </AnchorPane>
         </items>

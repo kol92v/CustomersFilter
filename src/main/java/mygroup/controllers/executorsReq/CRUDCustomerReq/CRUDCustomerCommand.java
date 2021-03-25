@@ -25,7 +25,7 @@ public abstract class CRUDCustomerCommand implements RequestCommand, ResponseCom
     }
 
     @Override
-    public Response createResponse(TypeMessage typeMessage, Customer... result) {
+    public Response createResponse(TypeMessage typeMessage, List<Customer> result) {
         return Response.builder().typeMessage(typeMessage)
                 .clientVwList(CnvrtCustomerClient.customerToClient(result))
                 .build();

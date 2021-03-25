@@ -3,14 +3,11 @@ package view.viewFX.controllersFX;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import lombok.Getter;
-import mygroup.controllers.MainController;
+import javafx.scene.layout.VBox;
 
-@Getter
-public class ControllerBaseInTable {
-    private final MainController mainController = new MainController();
+public class ControllerAddNewBases {
 
     @FXML
     private ResourceBundle resources;
@@ -19,10 +16,20 @@ public class ControllerBaseInTable {
     private URL location;
 
     @FXML
-    private Label baseNameBIT;
+    private Label clientNameANB;
 
     @FXML
-    private CheckBox checkBoxBIT;
+    private VBox vboxANB;
+
+    @FXML
+    private Button btRemoveBasesANB;
+
+    @FXML
+    private Button btSaveBasesANB;
+
+    @FXML
+    private Button addBaseANB;
+
 
     @FXML
     void initialize() {

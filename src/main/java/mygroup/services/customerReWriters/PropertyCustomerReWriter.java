@@ -79,8 +79,25 @@ public class PropertyCustomerReWriter extends CustomerReWriter {
         return addCustomerInFile(customer);
     }
 
+    @SneakyThrows(CloneNotSupportedException.class)
     @Override
     public Customer deleteBasesCustomerInFile(Customer customer) {
-        return addCustomerInFile(customer);
+        Customer customerFromProp = getCustomerFromFile(customer);
+        Iterator<UpdateFile> updateFileIterator = customerFromProp.getUpdateFileList().iterator();
+        while (updateFileIterator.hasNext()) {
+            UpdateFile updateFileProp = updateFileIterator.next();
+            for (UpdateFile delFile : customer.getUpdateFileList()) {
+                if (updateFileProp.getName().equals(delFile.getName()))
+                    updateFileIterator.remove();
+            }
+        }
+        addCustomerInFile(customerFromProp);
+        return customer.clone();
+    }
+
+    private Customer getCustomerFromFile(Customer customer) {
+        for (Customer c : getCustomersFromFile())
+            if (c.getName().equals(customer.getName())) return c;
+        return customer;
     }
 }

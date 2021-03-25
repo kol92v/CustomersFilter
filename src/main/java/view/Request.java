@@ -22,7 +22,7 @@ public class Request {
 
 
     public enum TypeController {
-        CRUD, CRUDProperty,
+        CRUDProperty,
         PckDirectory, FinderFolderDate
     }
 

@@ -13,22 +13,22 @@
         <items>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <CheckBox fx:id="checkBox" alignment="CENTER" layoutX="4.0" layoutY="6.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="20.0" />
+                  <CheckBox fx:id="checkBoxCIT" alignment="CENTER" layoutX="4.0" layoutY="6.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="20.0" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <Hyperlink fx:id="clientName" layoutY="3.0" text="ClientInTable" />
+                  <Hyperlink fx:id="clientNameCIT" layoutY="3.0" text="ClientInTable" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="76.0">
                <children>
-                  <TextField fx:id="dateFrom" layoutX="4.0" layoutY="2.0" prefHeight="25.0" prefWidth="76.0" />
+                  <TextField fx:id="dateFromCIT" layoutX="4.0" layoutY="2.0" prefHeight="25.0" prefWidth="76.0" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <TextField fx:id="dateTo" layoutX="3.0" layoutY="2.0" prefHeight="25.0" prefWidth="70.0" />
+                  <TextField fx:id="dateToCIT" layoutX="3.0" layoutY="2.0" prefHeight="25.0" prefWidth="70.0" />
                </children>
             </AnchorPane>
         </items>
