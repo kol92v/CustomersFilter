@@ -46,7 +46,7 @@ public class DirectoryCommand extends PackageCommand{
     }
 
     private LocalDate[] getDates(Request request) {
-        LocalDate[] fromAndToDates = {LocalDate.now(), LocalDate.MIN};
+        LocalDate[] fromAndToDates = {LocalDate.now(), LocalDate.MIN.plusDays(1L)};
         getCustomerList(request).forEach(customer -> {
             if (customer.getFrom().isBefore(fromAndToDates[0].plusDays(1L)))
                 fromAndToDates[0] = customer.getFrom();
