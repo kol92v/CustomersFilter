@@ -141,10 +141,4 @@ public class AdderClient implements View {
         TableClients.getInstance().init();
     }
 
-
-
-
-
-
-
 }

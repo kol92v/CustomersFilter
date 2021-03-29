@@ -62,12 +62,7 @@ public class ControllerAddNewClient {
 
     private void actionBtSaveClientANC(AdderClient adderClient) {
         adderClient.saveClient();
-//        close(new Event(btSaveClientANC, , null));
     }
-
-//    private void close(Event event) {
-//        ((Node)(event.getSource())).getScene().getWindow().hide();
-//    }
 
 
 }

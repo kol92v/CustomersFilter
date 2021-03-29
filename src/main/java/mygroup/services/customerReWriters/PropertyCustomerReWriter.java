@@ -74,9 +74,17 @@ public class PropertyCustomerReWriter extends CustomerReWriter {
         return customer.clone();
     }
 
+    @SneakyThrows(CloneNotSupportedException.class)
     @Override
     public Customer addBasesCustomerInFile(Customer customer) {
-        return addCustomerInFile(customer);
+        Properties properties = getProperties();
+        StringBuilder bases = new StringBuilder(properties.getProperty(customer.getName()));
+        for (UpdateFile updateFile : customer.getUpdateFileList()) {
+            bases.append(updateFile.getName()).append(";");
+        }
+        properties.setProperty(customer.getName(), bases.toString());
+        saveProperties(properties);
+        return customer.clone();
     }
 
     @SneakyThrows(CloneNotSupportedException.class)

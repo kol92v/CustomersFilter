@@ -84,7 +84,7 @@ public class ControllerGeneralWindow {
         tableClients.init();
 
         initListeners(tableClients, tableBases);
-        System.out.println();
+
     }
 
     private void setDatesFormat() {
@@ -139,7 +139,9 @@ public class ControllerGeneralWindow {
 
     private void actionBtAddBase() {
         if (!vboxBases.getChildren().isEmpty()) {
-            View adderBases = new AdderBases();
+            AdderBases adderBases = AdderBases.getInstance();
+            adderBases.setVBoxBases(vboxBases);
+            adderBases.setClientNameBaseList(clientNameBaseList);
             adderBases.runView();
         }
     }

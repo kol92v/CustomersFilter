@@ -21,7 +21,7 @@
          <center>
             <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <content>
-                  <VBox fx:id="vboxANB" prefHeight="234.0" prefWidth="230.0" />
+                  <VBox fx:id="vBoxANB" prefHeight="234.0" prefWidth="230.0" />
                </content>
             </ScrollPane>
          </center>
@@ -36,7 +36,7 @@
          <right>
             <AnchorPane prefHeight="211.0" prefWidth="44.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="addBaseANB" layoutX="3.0" layoutY="81.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="38.0" text="+">
+                  <Button fx:id="btAddBaseANB" layoutX="3.0" layoutY="81.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="38.0" text="+">
                      <font>
                         <Font size="14.0" />
                      </font>
