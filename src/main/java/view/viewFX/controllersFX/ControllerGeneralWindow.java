@@ -14,9 +14,7 @@ import lombok.Getter;
 import lombok.SneakyThrows;
 import mygroup.controllers.MainController;
 import view.Request;
-import view.Response;
 import view.TypeMessage;
-import view.View;
 import view.dtoVw.ClientVw;
 import view.viewFX.elementsGUI.AdderBases;
 import view.viewFX.elementsGUI.AdderClient;
@@ -52,7 +50,7 @@ public class ControllerGeneralWindow {
     private Button btAddClient;
 
     @FXML
-    private VBox vboxClients;
+    private VBox vBoxClients;
 
     @FXML
     private Button btAddBase;
@@ -64,7 +62,7 @@ public class ControllerGeneralWindow {
     private Label clientNameBaseList;
 
     @FXML
-    private VBox vboxBases;
+    private VBox vBoxBases;
 
     @FXML
     private Button startButton;
@@ -75,11 +73,11 @@ public class ControllerGeneralWindow {
         setDatesFormat();
 
         TableBases tableBases = TableBases.getInstance();
-        tableBases.setVBoxBases(vboxBases);
+        tableBases.setVBoxBases(vBoxBases);
         tableBases.setClientNameBaseList(clientNameBaseList);
 
         TableClients tableClients = TableClients.getInstance();
-        tableClients.setVBoxClients(vboxClients);
+        tableClients.setVBoxClients(vBoxClients);
 
         tableClients.init();
 
@@ -119,12 +117,12 @@ public class ControllerGeneralWindow {
                 .typeMessage(TypeMessage.DeleteClients)
                 .typeController(Collections.singletonList(Request.TypeController.CRUDProperty))
                 .build());
-        vboxBases.getChildren().clear();
+        vBoxBases.getChildren().clear();
     }
 
     private void actionBtAddClient() {
         AdderClient adderClient = AdderClient.getInstance();
-        adderClient.setVBoxClients(vboxClients);
+        adderClient.setVBoxClients(vBoxClients);
         adderClient.runView();
     }
 
@@ -138,9 +136,9 @@ public class ControllerGeneralWindow {
     }
 
     private void actionBtAddBase() {
-        if (!vboxBases.getChildren().isEmpty()) {
+        if (!vBoxBases.getChildren().isEmpty()) {
             AdderBases adderBases = AdderBases.getInstance();
-            adderBases.setVBoxBases(vboxBases);
+            adderBases.setVBoxBases(vBoxBases);
             adderBases.setClientNameBaseList(clientNameBaseList);
             adderBases.runView();
         }

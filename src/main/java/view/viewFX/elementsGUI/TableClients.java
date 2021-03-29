@@ -102,5 +102,4 @@ public class TableClients {
         return clientVwList;
     }
 
-
 }
