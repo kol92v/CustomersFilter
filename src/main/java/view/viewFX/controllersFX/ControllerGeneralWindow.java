@@ -16,10 +16,7 @@ import mygroup.controllers.MainController;
 import view.Request;
 import view.TypeMessage;
 import view.dtoVw.ClientVw;
-import view.viewFX.elementsGUI.AdderBases;
-import view.viewFX.elementsGUI.AdderClient;
-import view.viewFX.elementsGUI.TableBases;
-import view.viewFX.elementsGUI.TableClients;
+import view.viewFX.elementsGUI.*;
 
 @Getter
 public class ControllerGeneralWindow {
@@ -108,6 +105,7 @@ public class ControllerGeneralWindow {
         btAddClient.setOnAction(event -> actionBtAddClient());
         btRemoveBase.setOnAction(event -> actionBtRemoveBase(tableBases));
         btAddBase.setOnAction(event -> actionBtAddBase());
+        startButton.setOnAction(event -> actionStartButton());
     }
 
     private void actionBtRemoveClient(TableClients tableClients) {
@@ -142,5 +140,15 @@ public class ControllerGeneralWindow {
             adderBases.setClientNameBaseList(clientNameBaseList);
             adderBases.runView();
         }
+    }
+
+    private void actionStartButton() {
+        SelectorClients selectorClients = new SelectorClients();
+        selectorClients.setDateFromGeneral(dateFromGeneral);
+        selectorClients.setDateToGeneral(dateToGeneral);
+        selectorClients.setPathSourceFolder(pathSourceFolder);
+        selectorClients.setPathTargetFolder(pathTargetFolder);
+        selectorClients.setVBoxClients(vBoxClients);
+        selectorClients.startPackage();
     }
 }

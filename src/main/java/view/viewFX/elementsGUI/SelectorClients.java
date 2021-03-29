@@ -83,7 +83,7 @@ public class SelectorClients {
         SplitPane splitPane = (SplitPane) bpClient.getChildren().get(0);
         AnchorPane anchorPane = (AnchorPane) splitPane.getItems().get(2);
         TextField textField = (TextField) anchorPane.getChildren().get(0);
-        String strDate = textField.textProperty().getValue();
+        String strDate = textField.getText();
         return strDate == null || strDate.isEmpty();
     }
 
@@ -91,7 +91,7 @@ public class SelectorClients {
         SplitPane splitPane = (SplitPane) bpClient.getChildren().get(0);
         AnchorPane anchorPane = (AnchorPane) splitPane.getItems().get(3);
         TextField textField = (TextField) anchorPane.getChildren().get(0);
-        String strDate = textField.textProperty().getValue();
+        String strDate = textField.getText();
         return strDate == null || strDate.isEmpty();
     }
 
@@ -99,22 +99,22 @@ public class SelectorClients {
         SplitPane splitPane = (SplitPane) bpClient.getChildren().get(0);
         AnchorPane anchorPane = (AnchorPane) splitPane.getItems().get(2);
         TextField textField = (TextField) anchorPane.getChildren().get(0);
-        return LocalDate.parse(textField.textProperty().getValue());
+        return LocalDate.parse(textField.getText());
     }
 
     private LocalDate getClientDateTo(BorderPane bpClient) {
         SplitPane splitPane = (SplitPane) bpClient.getChildren().get(0);
         AnchorPane anchorPane = (AnchorPane) splitPane.getItems().get(3);
         TextField textField = (TextField) anchorPane.getChildren().get(0);
-        return LocalDate.parse(textField.textProperty().getValue());
+        return LocalDate.parse(textField.getText());
     }
 
     private LocalDate getMainDateFrom() {
-        return LocalDate.parse(dateFromGeneral.textProperty().getValue());
+        return LocalDate.parse(dateFromGeneral.getText());
     }
 
     private LocalDate getMainDateTo() {
-        return LocalDate.parse(dateToGeneral.textProperty().getValue());
+        return LocalDate.parse(dateToGeneral.getText());
     }
 
 

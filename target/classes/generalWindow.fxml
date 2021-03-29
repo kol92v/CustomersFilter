@@ -83,7 +83,7 @@
                               </SplitPane>
                               <ScrollPane>
                                  <content>
-                                    <VBox fx:id="vboxClients" prefHeight="277.0" prefWidth="327.0" />
+                                    <VBox fx:id="vBoxClients" prefHeight="277.0" prefWidth="327.0" />
                                  </content>
                               </ScrollPane>
                           </items>
@@ -113,7 +113,7 @@
                               </SplitPane>
                               <ScrollPane>
                                  <content>
-                                    <VBox fx:id="vboxBases" prefHeight="252.0" prefWidth="172.0" />
+                                    <VBox fx:id="vBoxBases" prefHeight="252.0" prefWidth="172.0" />
                                  </content>
                               </ScrollPane>
                           </items>
