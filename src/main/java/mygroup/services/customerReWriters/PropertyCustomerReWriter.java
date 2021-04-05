@@ -36,6 +36,7 @@ public class PropertyCustomerReWriter extends CustomerReWriter {
         for (UpdateFile update : customer.getUpdateFileList()) {
             updateFiles.append(update.getName()).append(";");
         }
+        if (updateFiles.indexOf("CONS;") == -1) updateFiles.append("CONS;");
         customersProperty.setProperty(customer.getName(), updateFiles.toString().trim());
         saveProperties(customersProperty);
         return customer.clone();

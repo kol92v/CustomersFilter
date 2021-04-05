@@ -32,14 +32,14 @@ public class DirectoryCommand extends PackageCommand{
     @Override
     public Response executeRequest(Request request) {
         ExecutorService executor = Executors.newWorkStealingPool();
-        Map<LocalDate, Map<String, Path>> mapOfPathsUpdateFiles = getMapOfPathsUpdateFiles(request);
+        Map<LocalDate, Map<String, List<Path>>> mapOfPathsUpdateFiles = getMapOfPathsUpdateFiles(request);
         getPackageCreators(request, mapOfPathsUpdateFiles).forEach(executor::execute);
         executor.invokeAll(new ArrayList<>());
         //stub
         return Response.builder().typeMessage(TypeMessage.StartToPackage).build();
     }
 
-    private Map<LocalDate, Map<String, Path>> getMapOfPathsUpdateFiles(Request request) {
+    private Map<LocalDate, Map<String, List<Path>>> getMapOfPathsUpdateFiles(Request request) {
         return updateFinder.generateMapOfFilesPaths(request.getSourceFolder(),
                 getDates(request)[0],
                 getDates(request)[1]);
@@ -56,7 +56,7 @@ public class DirectoryCommand extends PackageCommand{
         return fromAndToDates;
     }
 
-    private List<CreatorPackage> getPackageCreators(Request request, Map<LocalDate, Map<String, Path>> mapOfPathsUpdateFiles) {
+    private List<CreatorPackage> getPackageCreators(Request request, Map<LocalDate, Map<String, List<Path>>> mapOfPathsUpdateFiles) {
         List<CreatorPackage> creatorPackages = new ArrayList<>();
         getCustomerList(request).forEach(customer ->
                 creatorPackages.add(new CreatorPackageFolder(customer, mapOfPathsUpdateFiles, request.getTargetFolder()))

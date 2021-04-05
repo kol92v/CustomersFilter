@@ -12,11 +12,13 @@ import lombok.Setter;
 import mygroup.controllers.MainController;
 import view.Request;
 import view.TypeMessage;
+import view.dtoVw.BaseVw;
 import view.dtoVw.ClientVw;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class SelectorClients {
@@ -69,7 +71,16 @@ public class SelectorClients {
         } else {
             clientVw.setDateTo(getClientDateTo(bpClient));
         }
+        clientVw.setBaseVwList(getBaseVwList(clientVw.getName()));
         return clientVw;
+    }
+
+    private List<BaseVw> getBaseVwList(String clientName) {
+        return mainController.processingRequest(Request.builder().
+                typeController(Collections.singletonList(Request.TypeController.CRUDProperty)).
+                typeMessage(TypeMessage.GetBases).
+                clientList(Collections.singletonList(new ClientVw(clientName))).
+                build()).getClientVwList().get(0).getBaseVwList();
     }
 
     private String getClientName(BorderPane client) {
@@ -114,6 +125,7 @@ public class SelectorClients {
     }
 
     private LocalDate getMainDateTo() {
+        if (dateToGeneral.getText().isEmpty()) return LocalDate.now();
         return LocalDate.parse(dateToGeneral.getText());
     }
 

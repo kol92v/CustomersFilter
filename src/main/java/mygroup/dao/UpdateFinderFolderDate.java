@@ -9,22 +9,26 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class UpdateFinderFolderDate implements UpdateFinder, FileVisitor<Path> {
     //LocalDate - a directory uses a date for its name
     //String - name of UpdateFile
     //Path - paths to updateFiles
-    private Map<LocalDate, Map<String, Path>> mapOfPathsUpdateFiles;
+    private Map<LocalDate, Map<String, List<Path>>> mapOfPathsUpdateFiles;
     private LocalDate from;
     private LocalDate to;
+    private Path pathToUpdateFiles;
 
 
     @SneakyThrows(IOException.class)
-    public Map<LocalDate, Map<String, Path>> generateMapOfFilesPaths(Path pathToUpdateFiles, LocalDate from, LocalDate to) {
+    public Map<LocalDate, Map<String, List<Path>>> generateMapOfFilesPaths(Path pathToUpdateFiles, LocalDate from, LocalDate to) {
         this.from = from;
         this.to = to;
+        this.pathToUpdateFiles = pathToUpdateFiles;
         mapOfPathsUpdateFiles = new HashMap<>();
         Files.walkFileTree(pathToUpdateFiles, this);
         return mapOfPathsUpdateFiles;
@@ -32,7 +36,7 @@ public class UpdateFinderFolderDate implements UpdateFinder, FileVisitor<Path> {
 
     @Override
     public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
-
+        if (dir.equals(pathToUpdateFiles)) return FileVisitResult.CONTINUE;
         try {
             LocalDate keyDate = LocalDate.parse(dir.getFileName().toString().trim());
             if (!(keyDate.isAfter(from.minusDays(1L)) && keyDate.isBefore(to.plusDays(1L)))) {
@@ -54,8 +58,20 @@ public class UpdateFinderFolderDate implements UpdateFinder, FileVisitor<Path> {
                 .split("\\\\");
         String parentDirectoryFile = arrayDirectories[arrayDirectories.length - 1].trim();
         LocalDate keyDate = LocalDate.parse(parentDirectoryFile);
-        mapOfPathsUpdateFiles.get(keyDate).put(fileName.split("#")[0].trim(), file);
+        if (!mapOfPathsUpdateFiles.containsKey(keyDate)) initInnerMap(keyDate);
+        Map<String, List<Path>> mapFileNameAndPaths = mapOfPathsUpdateFiles.get(keyDate);
+        String baseName = fileName.split("#")[0].trim();
+        if (!mapFileNameAndPaths.containsKey(baseName)) initListOfPaths(keyDate, baseName);
+        mapFileNameAndPaths.get(baseName).add(file);
         return FileVisitResult.CONTINUE;
+    }
+
+    private void initInnerMap(LocalDate keyDate) {
+        mapOfPathsUpdateFiles.put(keyDate, new HashMap<>());
+    }
+
+    private void initListOfPaths(LocalDate keyDate, String baseName) {
+        mapOfPathsUpdateFiles.get(keyDate).put(baseName, new ArrayList<>());
     }
 
     @Override
