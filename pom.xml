@@ -74,87 +74,6 @@
 
 
 
-
-
-
-<!--        <dependency>-->
-<!--            <groupId>org.openjfx</groupId>-->
-<!--            <artifactId>javafx-graphics </artifactId>-->
-<!--            <version>15</version>-->
-<!--            <classifier>win</classifier>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.openjfx</groupId>-->
-<!--            <artifactId>javafx-graphics </artifactId>-->
-<!--            <version>15</version>-->
-<!--            <classifier>linux</classifier>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.openjfx</groupId>-->
-<!--            <artifactId>javafx-graphics </artifactId>-->
-<!--            <version>15</version>-->
-<!--            <classifier>mac</classifier>-->
-<!--        </dependency>-->
-
-
-
-
-
-
-
-
-<!--        <dependency>-->
-<!--            <groupId>org.openjfx</groupId>-->
-<!--            <artifactId>javafx-controls</artifactId>-->
-<!--            <version>15</version>-->
-<!--        </dependency>-->
-
-
-<!--        <dependency>-->
-<!--            <groupId>org.openjfx</groupId>-->
-<!--            <artifactId>javafx-graphics</artifactId>-->
-<!--            <version>15</version>-->
-<!--        </dependency>-->
-
-
-<!--        <dependency>-->
-<!--            <groupId>org.openjfx</groupId>-->
-<!--            <artifactId>javafx-base</artifactId>-->
-<!--            <version>15</version>-->
-<!--        </dependency>-->
-
-
-<!--        <dependency>-->
-<!--            <groupId>org.openjfx</groupId>-->
-<!--            <artifactId>javafx-fxml</artifactId>-->
-<!--            <version>15</version>-->
-<!--        </dependency>-->
-
-
-<!--        <dependency>-->
-<!--            <groupId>org.openjfx</groupId>-->
-<!--            <artifactId>javafx-web</artifactId>-->
-<!--            <version>15</version>-->
-<!--        </dependency>-->
-
-
-<!--        <dependency>-->
-<!--            <groupId>org.openjfx</groupId>-->
-<!--            <artifactId>javafx-swing</artifactId>-->
-<!--            <version>15</version>-->
-<!--        </dependency>-->
-
-
-<!--        <dependency>-->
-<!--            <groupId>org.openjfx</groupId>-->
-<!--            <artifactId>javafx-media</artifactId>-->
-<!--            <version>15</version>-->
-<!--        </dependency>-->
-
-
-
-
-
         <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->
         <dependency>
             <groupId>org.codehaus.mojo</groupId>
@@ -183,27 +102,20 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>view.viewFX.ViewFX</mainClass>
+                            <mainClass>psvm.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
             </plugin>
 
-<!--            <plugin>-->
-<!--                <groupId>org.openjfx</groupId>-->
-<!--                <artifactId>javafx-maven-plugin</artifactId>-->
-<!--                <version>0.0.5</version>-->
-<!--                <configuration>-->
-<!--                    <mainClass>view.viewFX.ViewFX</mainClass>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+
 
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.0.0</version>
                 <configuration>
-                    <mainClass>view.viewFX.ViewFX</mainClass>
+                    <mainClass>psvm.Main</mainClass>
                 </configuration>
             </plugin>
 
