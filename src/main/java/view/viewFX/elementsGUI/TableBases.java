@@ -26,11 +26,7 @@ public class TableBases {
     private VBox vBoxBases;
     @Getter @Setter
     private Label clientNameBaseList;
-
-
-    private final URL baseInTableFXML = new URL("file:" + Paths.get(System.getProperty("user.dir") +
-            File.separator +  "target" + File.separator + "classes" +
-            File.separator + "baseInTable.fxml"));
+    private final URL baseInTableFXML = Thread.currentThread().getContextClassLoader().getResource("baseInTable.fxml");
 
     private static TableBases instance;
     private TableBases() throws MalformedURLException {}

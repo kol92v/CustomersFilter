@@ -29,10 +29,8 @@ import java.util.*;
 public class TableClients {
     @Getter @Setter
     private VBox vBoxClients;
+    private final URL clientInTableFXML = Thread.currentThread().getContextClassLoader().getResource("clientInTable.fxml");
 
-    private final URL clientInTableFXML = new URL("file:" + Paths.get(System.getProperty("user.dir") +
-            File.separator +  "target" + File.separator + "classes" +
-            File.separator + "clientInTable.fxml"));
 
     private final MainController mainController = new MainController();
 

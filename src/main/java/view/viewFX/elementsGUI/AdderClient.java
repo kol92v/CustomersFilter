@@ -40,10 +40,7 @@ public class AdderClient implements View {
 
     private Stage objForClose;
     private final MainController mainController = new MainController();
-
-    private final URL baseInTableFXML = new URL("file:" + Paths.get(System.getProperty("user.dir") +
-            File.separator +  "target" + File.separator + "classes" +
-            File.separator + "baseANC.fxml"));
+    private final URL baseInTableFXML = Thread.currentThread().getContextClassLoader().getResource("baseANC.fxml");
 
     private static AdderClient instance =null;
     private AdderClient() throws MalformedURLException {}
@@ -67,9 +64,7 @@ public class AdderClient implements View {
         Stage primaryStage = new Stage();
         primaryStage.initModality(Modality.APPLICATION_MODAL);
         Parent root = FXMLLoader
-                .load(new URL("file:" + Paths.get(System.getProperty("user.dir") +
-                        File.separator +  "target" + File.separator + "classes" +
-                        File.separator + "addNewClient.fxml")));
+                .load(Thread.currentThread().getContextClassLoader().getResource("addNewClient.fxml"));
         primaryStage.setTitle("Add new client");
         primaryStage.setScene(new Scene(root, 344, 311));
         objForClose = primaryStage;

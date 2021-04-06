@@ -4,6 +4,7 @@ import lombok.SneakyThrows;
 import mygroup.services.dtoMd.Customer;
 import mygroup.services.dtoMd.UpdateFile;
 
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,21 +13,33 @@ import java.util.*;
 
 public class PropertyCustomerReWriter extends CustomerReWriter {
 
-    @SneakyThrows(IOException.class)
+
     private Properties getProperties() {
         Properties customersProperty = new Properties();
         if (Files.exists(fileCustomerSettings)) {
-            customersProperty.load(Files.newBufferedReader(fileCustomerSettings));
+            try(FileInputStream fis = new FileInputStream(fileCustomerSettings.toFile())) {
+                customersProperty.load(fis);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         } else {
-            Files.createFile(fileCustomerSettings);
+
+            try {
+                Files.createFile(fileCustomerSettings);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return customersProperty;
     }
 
-    @SneakyThrows(IOException.class)
+
     private void saveProperties(Properties customersProperty) {
-        customersProperty.store(new FileOutputStream(fileCustomerSettings.toFile()),
-                LocalDateTime.now().toString());
+        try(FileOutputStream fis = new FileOutputStream(fileCustomerSettings.toFile())) {
+        customersProperty.store(fis,LocalDateTime.now().toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @SneakyThrows(CloneNotSupportedException.class)

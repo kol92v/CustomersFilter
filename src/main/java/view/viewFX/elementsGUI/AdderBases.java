@@ -73,9 +73,7 @@ public class AdderBases implements View {
         Stage primaryStage = new Stage();
         primaryStage.initModality(Modality.APPLICATION_MODAL);
         Parent root = FXMLLoader
-                .load(new URL("file:" + Paths.get(System.getProperty("user.dir") +
-                        File.separator + "target" + File.separator + "classes" +
-                        File.separator + "addNewBases.fxml")));
+                .load(Thread.currentThread().getContextClassLoader().getResource("addNewBases.fxml"));
         primaryStage.setTitle("Add new bases");
         primaryStage.setScene(new Scene(root, 276, 333));
         objForClose = primaryStage;
@@ -100,9 +98,7 @@ public class AdderBases implements View {
     @SneakyThrows
     private Node getBaseANB() {
         return FXMLLoader
-                .load(new URL("file:" + Paths.get(System.getProperty("user.dir") +
-                        File.separator + "target" + File.separator + "classes" +
-                        File.separator + "baseANB.fxml")));
+                .load(Thread.currentThread().getContextClassLoader().getResource("baseANB.fxml"));
     }
 
 
