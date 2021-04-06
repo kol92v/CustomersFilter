@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -12,126 +14,140 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.viewFX.controllersFX.ControllerGeneralWindow">
-   <center>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="669.0">
-         <children>
-            <Pane layoutX="9.0" layoutY="14.0" prefHeight="96.0" prefWidth="368.0" style="-fx-background-color: #FFF8DC;">
-               <children>
-                  <TextField fx:id="pathSourceFolder" layoutX="116.0" layoutY="14.0" prefHeight="25.0" prefWidth="238.0" />
-                  <TextField fx:id="pathTargetFolder" layoutX="116.0" layoutY="55.0" prefHeight="25.0" prefWidth="238.0" />
-                  <Label layoutX="14.0" layoutY="55.0" prefHeight="25.0" prefWidth="104.0" text="Target folder">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="104.0" text="Source folder">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <Pane layoutX="382.0" layoutY="14.0" prefHeight="96.0" prefWidth="268.0" style="-fx-background-color: #FFF8DC;">
-               <children>
-                  <TextField fx:id="dateFromGeneral" layoutX="97.0" layoutY="15.0" prefHeight="25.0" prefWidth="157.0" promptText="yyyy-mm-dd" />
-                  <TextField fx:id="dateToGeneral" layoutX="97.0" layoutY="57.0" prefHeight="25.0" prefWidth="157.0" promptText="yyyy-mm-dd" />
-                  <Label layoutX="14.0" layoutY="15.0" prefHeight="25.0" prefWidth="77.0" text="Date from">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="14.0" layoutY="57.0" prefHeight="25.0" prefWidth="77.0" text="Date to">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <HBox layoutX="14.0" layoutY="117.0" prefHeight="414.0" prefWidth="640.0" style="-fx-background-color: #FFF8DC;">
-               <children>
-                  <Pane prefHeight="276.0" prefWidth="380.0" style="-fx-border-color: DEB887;">
+
+<TabPane xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.viewFX.controllersFX.ControllerGeneralWindow">
+   <tabs>
+      <Tab text="Copy Files">
+         <content>
+            <BorderPane>
+               <center>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="669.0">
                      <children>
-                        <Button fx:id="btRemoveClient" layoutX="14.0" layoutY="369.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" text="Remove client" />
-                        <Button fx:id="btAddClient" layoutX="171.0" layoutY="369.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="148.0" text="Add client" />
-                        <Label layoutX="113.0" layoutY="14.0" prefHeight="25.0" prefWidth="116.0" text="List of clients">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                        <SplitPane dividerPositions="0.12225705329153605" layoutY="42.0" orientation="VERTICAL" prefHeight="321.0" prefWidth="330.0">
-                          <items>
-                              <SplitPane dividerPositions="0.0602, 0.4675, 0.7492">
-                                 <items>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
-                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                       <children>
-                                          <Label layoutX="14.0" layoutY="10.0" prefHeight="17.0" prefWidth="92.0" text="Clients" />
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                       <children>
-                                          <Label layoutX="8.0" layoutY="10.0" text="Date from" />
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                       <children>
-                                          <Label layoutX="6.0" layoutY="10.0" text="Date to" />
-                                       </children>
-                                    </AnchorPane>
-                                 </items>
-                              </SplitPane>
-                              <ScrollPane>
-                                 <content>
-                                    <VBox fx:id="vBoxClients" prefHeight="277.0" prefWidth="327.0" />
-                                 </content>
-                              </ScrollPane>
-                          </items>
-                        </SplitPane>
+                        <Pane layoutX="9.0" layoutY="14.0" prefHeight="96.0" prefWidth="368.0" style="-fx-background-color: #FFF8DC;">
+                           <children>
+                              <TextField fx:id="pathSourceFolder" layoutX="116.0" layoutY="14.0" prefHeight="25.0" prefWidth="238.0" />
+                              <TextField fx:id="pathTargetFolder" layoutX="116.0" layoutY="55.0" prefHeight="25.0" prefWidth="238.0" />
+                              <Label layoutX="14.0" layoutY="55.0" prefHeight="25.0" prefWidth="104.0" text="Target folder">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="104.0" text="Source folder">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="382.0" layoutY="14.0" prefHeight="96.0" prefWidth="268.0" style="-fx-background-color: #FFF8DC;">
+                           <children>
+                              <TextField fx:id="dateFromGeneral" layoutX="97.0" layoutY="15.0" prefHeight="25.0" prefWidth="157.0" promptText="yyyy-mm-dd" />
+                              <TextField fx:id="dateToGeneral" layoutX="97.0" layoutY="57.0" prefHeight="25.0" prefWidth="157.0" promptText="yyyy-mm-dd" />
+                              <Label layoutX="14.0" layoutY="15.0" prefHeight="25.0" prefWidth="77.0" text="Date from">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="14.0" layoutY="57.0" prefHeight="25.0" prefWidth="77.0" text="Date to">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <HBox layoutX="14.0" layoutY="117.0" prefHeight="414.0" prefWidth="640.0" style="-fx-background-color: #FFF8DC;">
+                           <children>
+                              <Pane prefHeight="276.0" prefWidth="380.0" style="-fx-border-color: DEB887;">
+                                 <children>
+                                    <Button fx:id="btRemoveClient" layoutX="14.0" layoutY="369.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" text="Remove client" />
+                                    <Button fx:id="btAddClient" layoutX="171.0" layoutY="369.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="148.0" text="Add client" />
+                                    <Label layoutX="113.0" layoutY="14.0" prefHeight="25.0" prefWidth="116.0" text="List of clients">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <SplitPane dividerPositions="0.12225705329153605" layoutY="42.0" orientation="VERTICAL" prefHeight="321.0" prefWidth="330.0">
+                                      <items>
+                                          <SplitPane dividerPositions="0.0602, 0.4675, 0.7492">
+                                             <items>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+                                                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Label layoutX="14.0" layoutY="10.0" prefHeight="17.0" prefWidth="92.0" text="Clients" />
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Label layoutX="8.0" layoutY="10.0" text="Date from" />
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Label layoutX="6.0" layoutY="10.0" text="Date to" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </items>
+                                          </SplitPane>
+                                          <ScrollPane>
+                                             <content>
+                                                <VBox fx:id="vBoxClients" prefHeight="277.0" prefWidth="327.0" />
+                                             </content>
+                                          </ScrollPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="276.0" prefWidth="227.0" style="-fx-border-color: DEB887;">
+                                 <children>
+                                    <Button fx:id="btAddBase" layoutX="38.0" layoutY="343.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="Add base" />
+                                    <Button fx:id="btRemoveBase" layoutX="45.0" layoutY="375.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="90.0" text="Remove base" />
+                                    <Label layoutX="34.0" layoutY="14.0" prefHeight="21.0" prefWidth="104.0" text="Bases of client">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <SplitPane dividerPositions="0.1292517006802721" layoutX="1.0" layoutY="42.0" orientation="VERTICAL" prefHeight="296.0" prefWidth="176.0">
+                                      <items>
+                                          <SplitPane dividerPositions="0.8448">
+                                             <items>
+                                                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Label fx:id="clientNameBaseList" layoutX="11.0" layoutY="11.0" text="Client" />
+                                                   </children>
+                                                </AnchorPane>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+                                             </items>
+                                          </SplitPane>
+                                          <ScrollPane>
+                                             <content>
+                                                <VBox fx:id="vBoxBases" prefHeight="252.0" prefWidth="172.0" />
+                                             </content>
+                                          </ScrollPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="276.0" prefWidth="180.0" style="-fx-border-color: DEB887;">
+                                 <children>
+                                    <Button fx:id="startButton" layoutX="15.0" layoutY="171.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="104.0" text="Start">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
                      </children>
-                  </Pane>
-                  <Pane prefHeight="276.0" prefWidth="227.0" style="-fx-border-color: DEB887;">
-                     <children>
-                        <Button fx:id="btAddBase" layoutX="38.0" layoutY="343.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="Add base" />
-                        <Button fx:id="btRemoveBase" layoutX="45.0" layoutY="375.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="90.0" text="Remove base" />
-                        <Label layoutX="34.0" layoutY="14.0" prefHeight="21.0" prefWidth="104.0" text="Bases of client">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <SplitPane dividerPositions="0.1292517006802721" layoutX="1.0" layoutY="42.0" orientation="VERTICAL" prefHeight="296.0" prefWidth="176.0">
-                          <items>
-                              <SplitPane dividerPositions="0.8448">
-                                 <items>
-                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                       <children>
-                                          <Label fx:id="clientNameBaseList" layoutX="11.0" layoutY="11.0" text="Client" />
-                                       </children>
-                                    </AnchorPane>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
-                                 </items>
-                              </SplitPane>
-                              <ScrollPane>
-                                 <content>
-                                    <VBox fx:id="vBoxBases" prefHeight="252.0" prefWidth="172.0" />
-                                 </content>
-                              </ScrollPane>
-                          </items>
-                        </SplitPane>
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="276.0" prefWidth="180.0" style="-fx-border-color: DEB887;">
-                     <children>
-                        <Button fx:id="startButton" layoutX="15.0" layoutY="171.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="104.0" text="Start">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </Pane>
-               </children>
-            </HBox>
-         </children>
-      </AnchorPane>
-   </center>
-</BorderPane>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </content>
+      </Tab>
+      <Tab text="Delete Files">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </content>
+      </Tab>
+   </tabs>
+</TabPane>
